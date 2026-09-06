@@ -14,18 +14,18 @@ const badge = computed(() => (cart.ready && cart.count > 0 ? cart.count : null))
     :aria-label="`Cart${badge ? `, ${badge} item${badge > 1 ? 's' : ''}` : ' (empty)'}`"
   >
     <svg
-      width="19"
-      height="19"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     >
-      <path
-        d="M4 7h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8L4 7Z"
-        stroke-linejoin="round"
-      />
-      <path d="M8.5 7V6a3.5 3.5 0 1 1 7 0v1" stroke-linecap="round" />
+      <path d="M2.5 3.5h2.2l2.2 11.1a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21.5 7H6" />
+      <circle cx="9" cy="20" r="1.4" />
+      <circle cx="17" cy="20" r="1.4" />
     </svg>
     <ClientOnly>
       <Transition name="lightbox-fade">
