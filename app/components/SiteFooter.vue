@@ -6,7 +6,7 @@ const year = new Date().getFullYear()
 <template>
   <footer class="border-t border-paper/10 bg-ink">
     <div class="container-wide py-14">
-      <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <div class="flex flex-col gap-12 md:flex-row md:justify-between">
         <div class="max-w-sm">
           <p class="font-serif text-xl text-paper">Lombardi<span class="text-clay">.</span></p>
           <p class="mt-3 text-sm leading-relaxed text-paper/55">
@@ -15,21 +15,32 @@ const year = new Date().getFullYear()
           </p>
         </div>
 
-        <nav class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm sm:grid-cols-3">
-          <NuxtLink class="footer-link" to="/gallery">Gallery</NuxtLink>
-          <NuxtLink class="footer-link" to="/about">About</NuxtLink>
-          <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
-          <NuxtLink class="footer-link" to="/gallery?category=Cities">Cities</NuxtLink>
-          <NuxtLink class="footer-link" to="/gallery?category=Streets">Streets</NuxtLink>
-          <NuxtLink class="footer-link" to="/gallery?category=Gardens">Gardens</NuxtLink>
-        </nav>
+        <div class="flex gap-16 sm:gap-24">
+          <nav class="flex flex-col gap-2.5 text-sm">
+            <p class="mb-1 text-xs font-medium uppercase tracking-widest text-paper/35">
+              Explore
+            </p>
+            <NuxtLink class="footer-link" to="/gallery">Gallery</NuxtLink>
+            <NuxtLink class="footer-link" to="/about">About</NuxtLink>
+            <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
+          </nav>
+
+          <nav class="flex flex-col gap-2.5 text-sm">
+            <p class="mb-1 text-xs font-medium uppercase tracking-widest text-paper/35">
+              Prints
+            </p>
+            <NuxtLink class="footer-link" to="/gallery?category=Cities">Cities</NuxtLink>
+            <NuxtLink class="footer-link" to="/gallery?category=Streets">Streets</NuxtLink>
+            <NuxtLink class="footer-link" to="/gallery?category=Gardens">Gardens</NuxtLink>
+          </nav>
+        </div>
       </div>
 
-      <div
-        class="mt-12 flex flex-col gap-2 border-t border-paper/10 pt-6 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <p>&copy; {{ year }} Lombardi Photography. All images shown for portfolio demonstration.</p>
-        <p>Built with Nuxt &middot; Deployed on Vercel</p>
+      <div class="mt-12 border-t border-paper/10 pt-6 text-xs text-paper/40">
+        <p>
+          &copy; {{ year }} Lombardi Photography. All images shown for portfolio
+          demonstration.
+        </p>
       </div>
     </div>
   </footer>
@@ -37,6 +48,6 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .footer-link {
-  @apply py-1 text-paper/55 transition hover:text-paper;
+  @apply text-paper/55 transition hover:text-paper;
 }
 </style>
