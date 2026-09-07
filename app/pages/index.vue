@@ -89,6 +89,15 @@ useHead({ title: 'Lombardi Photography — Cities, Streets & Gardens' })
       </div>
     </section>
 
+    <!-- Browse by category -->
+    <section class="container-wide pb-20 sm:pb-24">
+      <div class="mb-8">
+        <p class="eyebrow">Browse by</p>
+        <h2 class="mt-2 font-serif text-3xl text-paper">Three ways in</h2>
+      </div>
+      <CategoryTiles />
+    </section>
+
     <!-- Featured -->
     <section class="container-wide pb-24 sm:pb-32">
       <div class="mb-8 flex items-end justify-between">
