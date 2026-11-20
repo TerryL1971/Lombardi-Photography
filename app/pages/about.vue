@@ -1,12 +1,12 @@
 <!-- app/pages/about.vue -->
 <script setup lang="ts">
 useHead({
-  title: 'Meet the Photographer — Lombardi Photography',
+  title: 'Meet the Photographer — Picture It by Terry',
   meta: [
     {
       name: 'description',
       content:
-        'Terry Lombardi is a travel and place photographer. A short, personal introduction.',
+        "I am not a professional photographer. I just love capturing what I see in order to show people how I see the world.",
     },
   ],
 })
@@ -16,70 +16,45 @@ useHead({
   <div class="pb-16">
     <header class="page-header">
       <h1>Meet the Photographer</h1>
-      <div class="space-y-4 text-left sm:text-center">
+      <div class="space-y-4">
         <p>
-          For about ten years I've been carrying a camera through the older
-          parts of European cities — Heidelberg, Lucerne, Strasbourg,
-          Rothenburg, a dozen towns along the Rhine — and photographing what's
-          actually there rather than what the guidebook promises.
+          I am not a professional photographer. I just love capturing what I see
+          in order to show people how I see the world. I only hope that people
+          like what I see. I will have some decent pictures in all of this and
+          some bad, but either way, I hope to get better as I go.
         </p>
         <p>
-          That usually means turning off the main square. The picture I want
-          is on the street behind it: the parked bicycles, the ivy eating a
-          facade, the one narrow lane with a red turret at the end. And in
-          spring it means the flower beds — I lose whole mornings at
-          Keukenhof and regret none of them.
+          So now you know the reason I have the saying&hellip; Seeing the world
+          through the eye of my lens.
         </p>
-        <p>
-          I shoot in the light that's already there. No lighting rigs, not
-          much gear — a body, two lenses, and a lot of standing around
-          waiting for a cyclist to arrive in the right place.
+        <hr class="mx-auto my-6 w-24 border-paper/15" />
+        <p lang="de">
+          Ich bin kein professioneller Fotograf. Ich liebe es einfach,
+          festzuhalten, was ich sehe, um den Menschen zu zeigen, wie ich die Welt
+          sehe. Ich hoffe nur, dass den Leuten gefällt, was ich sehe. Ich werde ein
+          paar gute und ein paar schlechte Bilder machen, aber so oder so, ich
+          hoffe, dass ich immer besser werde.
         </p>
-        <p>
-          Everything in the collection is printed to order, by a lab I've used
-          for years, on archival paper and canvas. If you'd like something in
-          a size or finish that isn't listed,
-          <NuxtLink to="/contact" class="text-clay underline underline-offset-4 hover:text-paper">
-            get in touch</NuxtLink>.
+        <p lang="de">
+          Jetzt wisst ihr also, warum ich die Seite&hellip; habe. Ich sehe die
+          Welt durch das Auge meiner Linse.
         </p>
       </div>
     </header>
 
-    <div class="mx-auto max-w-[1000px] space-y-[5px] px-[5%] lg:px-0">
-      <NuxtImg
-        src="/images/streets-heidelberg-church.jpg"
-        alt="Banded red sandstone arches inside the Church of the Holy Spirit in Heidelberg"
-        sizes="xs:100vw lg:1000px"
-        width="1000"
-        height="1250"
-        class="mx-auto w-full max-w-[600px] object-cover"
+    <div class="mx-auto max-w-[600px] px-[5%] sm:px-0">
+      <img
+        src="/images/terry.jpg"
+        alt="Terry C Lombardi on Eastbourne Pier"
+        width="600"
+        height="474"
+        class="h-auto w-full"
       />
-      <div class="mx-auto grid max-w-[600px] grid-cols-2 gap-[5px]">
-        <NuxtImg
-          src="/images/about-flags.jpg"
-          alt="A busy shopping street in Lucerne's old town with a painted building and a Swiss flag"
-          sizes="xs:50vw lg:300px"
-          width="800"
-          height="800"
-          class="aspect-square w-full object-cover"
-        />
-        <NuxtImg
-          src="/images/about-market.jpg"
-          alt="A London Christmas market at night, wooden chalets strung with warm lights and people walking between them"
-          sizes="xs:50vw lg:300px"
-          width="800"
-          height="800"
-          class="aspect-square w-full object-cover"
-        />
-      </div>
-      <p class="pt-3 text-center text-sm text-clay-deep">
-        Left: a Saturday in Lucerne. Right: Leicester Square, mid-December —
-        the reason my winter photos are all blue.
-      </p>
     </div>
 
-    <div class="mt-12 text-center">
-      <NuxtLink to="/contact" class="btn-primary">Get in touch</NuxtLink>
+    <div class="mt-12 flex flex-wrap justify-center gap-3">
+      <NuxtLink to="/collection" class="btn-primary">See the collection</NuxtLink>
+      <NuxtLink to="/contact" class="btn-outline">Get in touch</NuxtLink>
     </div>
   </div>
 </template>

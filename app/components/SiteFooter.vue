@@ -19,14 +19,14 @@ function toTop() {
     </button>
 
     <nav class="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
-      <NuxtLink class="footer-link" to="/gallery">Collection</NuxtLink>
+      <NuxtLink class="footer-link" to="/collection">Collection</NuxtLink>
       <NuxtLink class="footer-link" to="/about">Meet the Photographer</NuxtLink>
       <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
       <NuxtLink class="footer-link" to="/cart">Cart</NuxtLink>
     </nav>
 
     <p class="mt-6 text-xs">
-      &copy; {{ year }} Lombardi Photography. All images shown for portfolio demonstration.
+      &copy; {{ year }} Picture It by Terry &middot; Terry C Lombardi. All photographs &copy; Terry C Lombardi.
     </p>
   </footer>
 

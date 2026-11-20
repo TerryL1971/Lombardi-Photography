@@ -12,9 +12,15 @@ watch(
   },
 )
 
+function isActive(to: string) {
+  if (to === '/') return route.path === '/'
+  if (to === '/collection') return route.path.startsWith('/collection') || route.path.startsWith('/photo')
+  return route.path.startsWith(to)
+}
+
 const links = [
   { label: 'Home', to: '/' },
-  { label: 'Collection', to: '/gallery' },
+  { label: 'Collection', to: '/collection' },
   { label: 'Meet the Photographer', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -31,7 +37,7 @@ const links = [
         :key="link.to"
         :to="link.to"
         class="nav-link mr-5 last:mr-0"
-        exact-active-class="font-bold"
+        :class="{ 'font-bold': isActive(link.to) }"
       >
         {{ link.label }}
       </NuxtLink>
@@ -51,9 +57,9 @@ const links = [
     </div>
 
     <!-- Centre: wordmark -->
-    <NuxtLink to="/" class="flex shrink-0 items-baseline justify-center gap-2 px-4 text-paper">
-      <span class="font-display text-[21px] font-light leading-none sm:text-[22px]">Lombardi</span>
-      <span class="font-script text-[28px] leading-none sm:text-[30px]">Photography</span>
+    <NuxtLink to="/" class="flex shrink-0 flex-col items-center px-4 text-paper" aria-label="Picture It by Terry — home">
+      <span class="font-display text-[22px] font-light leading-none tracking-wide">Picture It</span>
+      <span class="-mt-0.5 ml-6 font-script text-[22px] leading-none">by Terry</span>
     </NuxtLink>
 
     <!-- Right: cart -->
@@ -83,7 +89,7 @@ const links = [
             :key="link.to"
             :to="link.to"
             class="text-[22px] leading-8 text-paper"
-            exact-active-class="font-bold"
+            :class="{ 'font-bold': isActive(link.to) }"
           >
             {{ link.label }}
           </NuxtLink>

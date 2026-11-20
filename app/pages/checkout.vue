@@ -52,7 +52,7 @@ function submit() {
   cart.clear()
 }
 
-useHead({ title: 'Checkout — Lombardi Photography' })
+useHead({ title: 'Checkout — Picture It by Terry' })
 </script>
 
 <template>
@@ -92,7 +92,7 @@ useHead({ title: 'Checkout — Lombardi Photography' })
           This is a portfolio demonstration. No payment was processed and no
           print will be produced.
         </p>
-        <NuxtLink to="/gallery" class="btn-primary mt-8">Back to the gallery</NuxtLink>
+        <NuxtLink to="/collection" class="btn-primary mt-8">Back to the collection</NuxtLink>
       </div>
 
       <!-- Empty guard -->
@@ -101,7 +101,7 @@ useHead({ title: 'Checkout — Lombardi Photography' })
         class="border-t border-paper/10 py-20 text-center"
       >
         <p class="font-serif text-2xl text-paper">Your cart is empty.</p>
-        <NuxtLink to="/gallery" class="btn-primary mt-8">Open the gallery</NuxtLink>
+        <NuxtLink to="/collection" class="btn-primary mt-8">Open the collection</NuxtLink>
       </div>
 
       <!-- Checkout form -->
@@ -165,12 +165,11 @@ useHead({ title: 'Checkout — Lombardi Photography' })
                 :key="line.key"
                 class="flex gap-3 text-sm"
               >
-                <NuxtImg
+                <img
                   :src="line.image"
                   :alt="line.title"
                   width="120"
                   height="120"
-                  sizes="56px"
                   class="h-14 w-14 shrink-0 object-cover"
                 />
                 <div class="min-w-0 flex-1">

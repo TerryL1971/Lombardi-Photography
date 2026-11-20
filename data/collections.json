@@ -1,0 +1,185 @@
+{
+  "homeBackground": "eastbourne-uk-dsc-0224",
+  "ignore": [
+    "Lightroom Team Photos",
+    "My Europe"
+  ],
+  "collections": [
+    {
+      "slug": "koln-2026",
+      "source": "Köln 2026",
+      "title": "Köln",
+      "year": 2026,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "luzern",
+      "source": "Luzern",
+      "title": "Luzern, Switzerland",
+      "year": 2023,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "munchen",
+      "source": "München",
+      "title": "München",
+      "year": 2023,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "lancaster-uk",
+      "source": "Lancaster, UK",
+      "title": "Lancaster, UK",
+      "year": 2023,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "london-uk",
+      "source": "London, UK",
+      "title": "London, UK",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "heidelberg",
+      "source": "Heidelberg",
+      "title": "Heidelberg",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "marburg",
+      "source": "Marburg",
+      "title": "Marburg",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "strasbourg-france",
+      "source": "Strasbourg, France",
+      "title": "Strasbourg, France",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "eastbourne-uk",
+      "source": "Eastbourne, UK_",
+      "title": "Eastbourne, UK",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "rothenburg",
+      "source": "Rothenburg o.d.T. Dec 2019",
+      "title": "Rothenburg o.d. Tauber",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "hochheim",
+      "source": "Hochheim",
+      "title": "Hochheim am Main",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "bad-homburg",
+      "source": "Bad Homburg",
+      "title": "Bad Homburg",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "speyer",
+      "source": "Speyer",
+      "title": "Speyer",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "mainz",
+      "source": "Mainz",
+      "title": "Mainz",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "wiesbaden",
+      "source": "Wiesbaden",
+      "title": "Wiesbaden",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "rudesheim-am-rhein",
+      "source": "Rüdesheim am Rhein",
+      "title": "Rüdesheim am Rhein",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "koblenz",
+      "source": "Koblenz",
+      "title": "Koblenz",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "eltville-am-rhein",
+      "source": "Eltville am Rhein",
+      "title": "Eltville am Rhein",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "keukenhof-gardens",
+      "source": "Keukenhof Gardens",
+      "title": "Keukenhof Gardens",
+      "year": 2019,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "kuhlungsborn",
+      "source": "Kühlungsborn",
+      "title": "Kühlungsborn",
+      "year": 2017,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "rostock",
+      "source": "Rostock",
+      "title": "Rostock",
+      "year": 2017,
+      "cover": null,
+      "photos": []
+    },
+    {
+      "slug": "random",
+      "source": "Random",
+      "title": "Random Artistic Shots",
+      "year": 2022,
+      "cover": null,
+      "photos": []
+    }
+  ]
+}

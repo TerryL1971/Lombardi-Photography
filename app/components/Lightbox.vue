@@ -55,7 +55,7 @@ onKeyStroke('ArrowLeft', () => {
           class="fixed inset-0 z-[60] flex flex-col bg-ink/95 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
-          :aria-label="`${current.title} — enlarged view`"
+          :aria-label="`${current.collectionTitle}, ${current.title} — enlarged view`"
         >
           <Transition name="lightbox-zoom" appear>
             <div class="flex h-full w-full flex-col">
@@ -95,13 +95,12 @@ onKeyStroke('ArrowLeft', () => {
 
                 <div class="relative flex h-full w-full items-center justify-center overflow-hidden">
                   <Transition name="frame-swap">
-                    <NuxtImg
+                    <img
                       :key="current.id"
-                      :src="current.image"
+                      :src="current.large"
                       :alt="current.alt"
-                      sizes="xs:92vw md:80vw lg:1400px"
-                      :width="current.orientation === 'portrait' ? 1400 : 1800"
-                      :height="current.orientation === 'portrait' ? 1750 : 1200"
+                      :width="current.width"
+                      :height="current.height"
                       loading="eager"
                       class="max-h-full max-w-full object-contain shadow-2xl shadow-black/50"
                     />
@@ -125,12 +124,12 @@ onKeyStroke('ArrowLeft', () => {
               <div class="border-t border-paper/10 bg-ink/80 px-4 py-4 sm:px-8 sm:py-5">
                 <div class="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div class="min-w-0">
-                    <p class="eyebrow">{{ current.category }} &middot; {{ current.year }}</p>
+                    <p class="eyebrow">{{ current.collectionTitle }} &middot; {{ current.year }}</p>
                     <h2 class="mt-1 font-serif text-xl text-paper sm:text-2xl">
                       {{ current.title }}
                     </h2>
-                    <p class="mt-1 line-clamp-2 max-w-xl text-sm text-paper/55">
-                      {{ current.description }}
+                    <p v-if="current.caption" class="mt-1 line-clamp-2 max-w-xl text-sm text-paper/55">
+                      {{ current.caption }}
                     </p>
                   </div>
                   <div class="flex shrink-0 items-center gap-2">

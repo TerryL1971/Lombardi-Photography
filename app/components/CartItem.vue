@@ -10,13 +10,13 @@ const lineTotal = computed(() => props.line.unitPrice * props.line.quantity)
 
 <template>
   <div class="flex gap-4 py-6 sm:gap-6">
-    <NuxtLink :to="`/gallery/${line.slug}`" class="shrink-0">
-      <NuxtImg
+    <NuxtLink :to="`/photo/${line.photoId}`" class="shrink-0">
+      <img
         :src="line.image"
         :alt="line.title"
         width="200"
         height="200"
-        sizes="96px sm:128px"
+        loading="lazy"
         class="h-24 w-24 object-cover sm:h-32 sm:w-32"
       />
     </NuxtLink>
@@ -25,7 +25,7 @@ const lineTotal = computed(() => props.line.unitPrice * props.line.quantity)
       <div class="flex items-start justify-between gap-4">
         <div class="min-w-0">
           <NuxtLink
-            :to="`/gallery/${line.slug}`"
+            :to="`/photo/${line.photoId}`"
             class="font-serif text-lg leading-tight text-paper transition hover:text-clay"
           >
             {{ line.title }}

@@ -16,24 +16,23 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'Lombardi Photography — Cities, Streets & Gardens',
+      title: 'Picture It by Terry',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
           content:
-            'Lombardi Photography — travel and place photography from the old towns, side streets and gardens of Europe. Browse the gallery and order archival prints.',
+            'Personal portfolio of landscape and architecture photography by Terry C Lombardi. Browse the collection and order prints.',
         },
         { name: 'theme-color', content: '#222222' },
-        { property: 'og:title', content: 'Lombardi Photography' },
+        { property: 'og:title', content: 'Picture It by Terry' },
         {
           property: 'og:description',
           content:
-            'Travel and place photography from the old towns, side streets and gardens of Europe. Order archival prints.',
+            'Personal portfolio of landscape and architecture photography by Terry C Lombardi.',
         },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: '/images/hero.jpg' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -69,5 +68,15 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'vercel',
+    // data/collections.json is read by server/utils/site-data.ts
+    serverAssets: [{ baseName: 'data', dir: '../data' }],
+  },
+
+  routeRules: {
+    // Old demo URLs
+    '/gallery': { redirect: { to: '/collection', statusCode: 301 } },
+    '/gallery/**': { redirect: { to: '/collection', statusCode: 301 } },
+    // Local-only arranging tool; never index it
+    '/arrange': { headers: { 'X-Robots-Tag': 'noindex' } },
   },
 })

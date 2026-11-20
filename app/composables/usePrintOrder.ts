@@ -13,11 +13,9 @@ export function usePrintOrder(photoInput: MaybeRefOrGetter<Photo>) {
   const cart = useCartStore()
   const photo = computed(() => toValue(photoInput))
 
-  const sizes = computed(() => [
-    ...new Set(photo.value.availableSizes.map((s) => s.size)),
-  ])
+  const sizes = computed(() => [...new Set(PRINT_OPTIONS.map((s) => s.size))])
   const finishesFor = (size: string) =>
-    photo.value.availableSizes
+    PRINT_OPTIONS
       .filter((s) => s.size === size)
       .map((s) => s.finish)
 
@@ -44,10 +42,10 @@ export function usePrintOrder(photoInput: MaybeRefOrGetter<Photo>) {
 
   const option = computed(
     () =>
-      photo.value.availableSizes.find(
+      PRINT_OPTIONS.find(
         (s) =>
           s.size === selectedSize.value && s.finish === selectedFinish.value,
-      ) ?? photo.value.availableSizes[0]!,
+      ) ?? PRINT_OPTIONS[0]!,
   )
 
   const lineTotal = computed(() => option.value.price * quantity.value)

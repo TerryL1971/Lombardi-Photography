@@ -12,7 +12,7 @@ const shipping = computed(() =>
 )
 const total = computed(() => cart.subtotal + shipping.value)
 
-useHead({ title: 'Cart — Lombardi Photography' })
+useHead({ title: 'Cart — Picture It by Terry' })
 </script>
 
 <template>
@@ -23,9 +23,9 @@ useHead({ title: 'Cart — Lombardi Photography' })
       <div v-if="cart.isEmpty" class="border-t border-paper/10 py-20 text-center">
         <p class="font-serif text-2xl text-paper">Nothing here yet.</p>
         <p class="mx-auto mt-3 max-w-sm text-paper/55">
-          Browse the gallery and add a print from any photograph.
+          Browse the collection and add a print from any photograph.
         </p>
-        <NuxtLink to="/gallery" class="btn-primary mt-8">Open the gallery</NuxtLink>
+        <NuxtLink to="/collection" class="btn-primary mt-8">Open the collection</NuxtLink>
       </div>
 
       <div v-else class="grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
@@ -65,7 +65,7 @@ useHead({ title: 'Cart — Lombardi Photography' })
               Checkout
             </NuxtLink>
             <NuxtLink
-              to="/gallery"
+              to="/collection"
               class="mt-3 block text-center text-sm text-paper/50 transition hover:text-paper"
             >
               Continue browsing

@@ -25,8 +25,8 @@ function open(list: Photo[], startIndex: number) {
   isOpen.value = true
 }
 
-function openBySlug(list: Photo[], slug: string) {
-  const i = list.findIndex((p) => p.slug === slug)
+function openById(list: Photo[], id: string) {
+  const i = list.findIndex((p) => p.id === id)
   open(list, i === -1 ? 0 : i)
 }
 
@@ -55,7 +55,7 @@ export function useLightbox() {
     hasMultiple,
     direction,
     open,
-    openBySlug,
+    openById,
     close,
     next,
     prev,

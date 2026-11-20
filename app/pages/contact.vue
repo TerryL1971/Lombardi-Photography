@@ -3,7 +3,7 @@
 import { reactive, ref } from 'vue'
 
 useHead({
-  title: 'Contact — Lombardi Photography',
+  title: 'Contact — Picture It by Terry',
   meta: [
     {
       name: 'description',
@@ -61,7 +61,7 @@ function submit() {
           the real site this would land in my inbox and I'd reply within a day or
           two.
         </p>
-        <NuxtLink to="/gallery" class="btn-outline mt-6">Back to the gallery</NuxtLink>
+        <NuxtLink to="/collection" class="btn-outline mt-6">Back to the collection</NuxtLink>
       </div>
 
       <div v-else key="form">

@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import type { CartLine, Photo, PrintOption } from '~/types/gallery'
 
-const STORAGE_KEY = 'lombardi-cart-v1'
+const STORAGE_KEY = 'picture-it-cart-v2'
 
 function lineKey(photoId: string, size: string, finish: string) {
   return `${photoId}__${size}__${finish}`
@@ -32,9 +32,8 @@ export const useCartStore = defineStore('cart', () => {
     lines.value.push({
       key,
       photoId: photo.id,
-      slug: photo.slug,
-      title: photo.title,
-      image: photo.image,
+      title: `${photo.collectionTitle} — ${photo.title}`,
+      image: photo.thumb,
       size: option.size,
       finish: option.finish,
       unitPrice: option.price,

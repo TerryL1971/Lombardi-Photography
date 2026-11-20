@@ -44,18 +44,17 @@ watch(
           </div>
 
           <div class="flex gap-4 px-6 py-5">
-            <NuxtImg
-              :src="photo.image"
+            <img
+              :src="photo.thumb"
               :alt="photo.alt"
               width="160"
               height="160"
-              sizes="120px"
               class="h-20 w-20 shrink-0 object-cover"
             />
             <div>
-              <p class="font-serif text-lg leading-tight text-paper">{{ photo.title }}</p>
+              <p class="font-serif text-lg leading-tight text-paper">{{ photo.collectionTitle }}</p>
               <p class="mt-1 text-xs text-paper/50">
-                {{ photo.category }} &middot; {{ photo.location }}
+                {{ photo.title }} &middot; {{ photo.year }}
               </p>
               <p class="mt-2 text-xs text-paper/45">
                 Archival pigment print. Ships in 5–7 business days.

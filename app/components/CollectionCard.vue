@@ -1,31 +1,27 @@
-<!-- app/components/PhotoCard.vue -->
+<!-- app/components/CollectionCard.vue -->
 <script setup lang="ts">
-import type { Photo } from '~/types/gallery'
+import type { CollectionSummary } from '~/types/gallery'
 
 defineProps<{
-  photo: Photo
+  collection: CollectionSummary
   /** Eager-load the first row for a good LCP. */
   priority?: boolean
-  sizes?: string
 }>()
-
-defineEmits<{ (e: 'open'): void }>()
 </script>
 
 <template>
-  <button
-    type="button"
-    class="group relative block aspect-[4/3] w-full overflow-hidden bg-black/[0.03] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-clay"
-    @click="$emit('open')"
+  <NuxtLink
+    :to="`/collection/${collection.slug}`"
+    class="group relative block aspect-[4/3] w-full overflow-hidden bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-clay"
   >
-    <NuxtImg
-      :src="photo.image"
-      :alt="photo.alt"
-      :sizes="sizes ?? 'xs:100vw sm:50vw'"
+    <img
+      :src="collection.cover.thumb"
+      :alt="collection.cover.alt"
+      :width="collection.cover.width"
+      :height="collection.cover.height"
       :loading="priority ? 'eager' : 'lazy'"
-      :preload="priority"
-      width="1500"
-      height="1125"
+      :fetchpriority="priority ? 'high' : undefined"
+      decoding="async"
       class="absolute inset-0 h-full w-full object-cover"
     />
 
@@ -35,12 +31,10 @@ defineEmits<{ (e: 'open'): void }>()
     >
       <div>
         <p class="pb-1 text-[15px] font-bold leading-[15px] sm:text-[18px] sm:leading-[18px] lg:text-[24px] lg:leading-6">
-          {{ photo.title }}
+          {{ collection.title }}
         </p>
-        <p class="pt-2.5 text-sm leading-5 lg:pt-3 lg:text-[17px]">
-          {{ photo.location }} {{ photo.year }}
-        </p>
+        <p class="pt-2.5 text-sm leading-5 lg:pt-3 lg:text-[17px]">{{ collection.year }}</p>
       </div>
     </div>
-  </button>
+  </NuxtLink>
 </template>
