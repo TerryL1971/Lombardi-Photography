@@ -44,12 +44,17 @@ function submit() {
 </script>
 
 <template>
-  <div class="container-prose pb-24 pt-24 sm:pt-32">
-    <p class="eyebrow">Contact</p>
-    <h1 class="mt-3 font-serif text-4xl text-paper sm:text-5xl">Say hello</h1>
+  <div class="container-prose pb-24">
+    <header class="page-header !px-0 !pb-6">
+      <h1>Say hello</h1>
+      <p v-if="!sent">
+        Questions about a print, a wall you're trying to fill, a commission or
+        licensing — this reaches me directly.
+      </p>
+    </header>
 
     <Transition name="lightbox-fade" mode="out-in">
-      <div v-if="sent" key="sent" class="mt-10 rounded-lg border border-clay/30 bg-clay/5 p-8">
+      <div v-if="sent" key="sent" class="mt-4 border border-paper/20 p-8 text-center">
         <p class="font-serif text-2xl text-paper">Thanks, {{ form.name.split(' ')[0] }}.</p>
         <p class="mt-2 text-paper/65">
           Your message about "{{ form.topic.toLowerCase() }}" has been noted. In
@@ -60,12 +65,7 @@ function submit() {
       </div>
 
       <div v-else key="form">
-        <p class="mt-4 max-w-lg text-paper/60">
-          Questions about a print, a wall you're trying to fill, a commission or
-          licensing — this reaches me directly.
-        </p>
-
-        <form class="mt-10 space-y-5" novalidate @submit.prevent="submit">
+        <form class="mt-4 space-y-5" novalidate @submit.prevent="submit">
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
               <label class="field-label" for="name">Name</label>
@@ -92,8 +92,8 @@ function submit() {
             <p v-if="errors.message" class="mt-1 text-xs text-clay">{{ errors.message }}</p>
           </div>
 
-          <button type="submit" class="btn-primary w-full sm:w-auto">Send message</button>
-          <p class="text-xs text-paper/35">
+          <div class="text-center"><button type="submit" class="btn-primary w-full sm:w-auto">Submit</button></div>
+          <p class="text-center text-xs text-dim">
             Portfolio demo — this form validates and confirms, but doesn't send
             an email.
           </p>

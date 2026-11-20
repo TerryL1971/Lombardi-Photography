@@ -15,7 +15,7 @@ defineProps<{ order: ReturnType<typeof usePrintOrder> }>()
           v-for="size in order.sizes.value"
           :key="size"
           type="button"
-          class="rounded-lg border px-3 py-2.5 text-sm transition"
+          class="rounded-none border px-3 py-2.5 text-sm transition"
           :class="
             order.selectedSize.value === size
               ? 'border-clay bg-clay/10 text-paper'
@@ -50,7 +50,7 @@ defineProps<{ order: ReturnType<typeof usePrintOrder> }>()
 
     <div>
       <p class="field-label">Quantity</p>
-      <div class="inline-flex items-center rounded-lg border border-paper/15">
+      <div class="inline-flex items-center rounded-none border border-paper/15">
         <button
           type="button"
           class="grid h-10 w-10 place-items-center text-paper/70 transition hover:text-paper disabled:opacity-30"

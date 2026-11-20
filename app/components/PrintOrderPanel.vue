@@ -50,7 +50,7 @@ watch(
               width="160"
               height="160"
               sizes="120px"
-              class="h-20 w-20 shrink-0 rounded-sm object-cover"
+              class="h-20 w-20 shrink-0 object-cover"
             />
             <div>
               <p class="font-serif text-lg leading-tight text-paper">{{ photo.title }}</p>

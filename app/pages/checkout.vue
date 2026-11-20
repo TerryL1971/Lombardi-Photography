@@ -56,7 +56,7 @@ useHead({ title: 'Checkout — Lombardi Photography' })
 </script>
 
 <template>
-  <div class="container-wide pb-24 pt-28 sm:pt-36">
+  <div class="container-wide pb-24 pt-12 sm:pt-16">
     <ClientOnly>
       <!-- Confirmation -->
       <div v-if="confirmed" class="mx-auto max-w-lg py-10 text-center">
@@ -156,8 +156,8 @@ useHead({ title: 'Checkout — Lombardi Photography' })
           </form>
         </div>
 
-        <aside class="lg:sticky lg:top-28 lg:self-start">
-          <div class="rounded-lg border border-paper/10 bg-ink-soft p-6">
+        <aside class="lg:sticky lg:top-[97px] lg:self-start">
+          <div class="rounded-none border border-paper/10 bg-ink-soft p-6">
             <h2 class="font-serif text-xl text-paper">Order</h2>
             <ul class="mt-5 space-y-4">
               <li
@@ -171,7 +171,7 @@ useHead({ title: 'Checkout — Lombardi Photography' })
                   width="120"
                   height="120"
                   sizes="56px"
-                  class="h-14 w-14 shrink-0 rounded-sm object-cover"
+                  class="h-14 w-14 shrink-0 object-cover"
                 />
                 <div class="min-w-0 flex-1">
                   <p class="truncate text-paper">{{ line.title }}</p>

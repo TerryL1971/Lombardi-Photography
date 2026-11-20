@@ -1,53 +1,57 @@
 <!-- app/components/SiteFooter.vue -->
 <script setup lang="ts">
+import { useWindowScroll } from '@vueuse/core'
+import { computed } from 'vue'
+
 const year = new Date().getFullYear()
+const { y } = useWindowScroll()
+const showFixed = computed(() => y.value > 600)
+
+function toTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <template>
-  <footer class="border-t border-paper/10 bg-ink">
-    <div class="container-wide py-14">
-      <div class="flex flex-col gap-12 md:flex-row md:justify-between">
-        <div class="max-w-sm">
-          <p class="font-serif text-xl text-paper">Lombardi<span class="text-clay">.</span></p>
-          <p class="mt-3 text-sm leading-relaxed text-paper/55">
-            Travel and place photography — European old towns, side streets and
-            gardens. Prints are made to order on archival paper and canvas.
-          </p>
-        </div>
+  <footer class="relative z-10 bg-ink px-[5%] py-[25px] text-center text-sm leading-5 text-dim sm:py-[60px] sm:text-base">
+    <button type="button" class="text-dim transition hover:text-clay" @click="toTop">
+      <span class="mr-2.5">&uarr;</span>Back to Top
+    </button>
 
-        <div class="flex gap-16 sm:gap-24">
-          <nav class="flex flex-col gap-2.5 text-sm">
-            <p class="mb-1 text-xs font-medium uppercase tracking-widest text-paper/35">
-              Explore
-            </p>
-            <NuxtLink class="footer-link" to="/gallery">Gallery</NuxtLink>
-            <NuxtLink class="footer-link" to="/about">About</NuxtLink>
-            <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
-          </nav>
+    <nav class="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+      <NuxtLink class="footer-link" to="/gallery">Collection</NuxtLink>
+      <NuxtLink class="footer-link" to="/about">Meet the Photographer</NuxtLink>
+      <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
+      <NuxtLink class="footer-link" to="/cart">Cart</NuxtLink>
+    </nav>
 
-          <nav class="flex flex-col gap-2.5 text-sm">
-            <p class="mb-1 text-xs font-medium uppercase tracking-widest text-paper/35">
-              Prints
-            </p>
-            <NuxtLink class="footer-link" to="/gallery?category=Cities">Cities</NuxtLink>
-            <NuxtLink class="footer-link" to="/gallery?category=Streets">Streets</NuxtLink>
-            <NuxtLink class="footer-link" to="/gallery?category=Gardens">Gardens</NuxtLink>
-          </nav>
-        </div>
-      </div>
-
-      <div class="mt-12 border-t border-paper/10 pt-6 text-xs text-paper/40">
-        <p>
-          &copy; {{ year }} Lombardi Photography. All images shown for portfolio
-          demonstration.
-        </p>
-      </div>
-    </div>
+    <p class="mt-6 text-xs">
+      &copy; {{ year }} Lombardi Photography. All images shown for portfolio demonstration.
+    </p>
   </footer>
+
+  <!-- Fixed round back-to-top button -->
+  <Transition name="lightbox-fade">
+    <button
+      v-if="showFixed"
+      type="button"
+      aria-label="Back to top"
+      class="group fixed bottom-6 right-6 z-30 grid h-[60px] w-[60px] place-items-center rounded-full bg-white/10 transition hover:bg-white/20"
+      @click="toTop"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" class="opacity-30 transition group-hover:opacity-50">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </Transition>
 </template>
 
 <style scoped>
 .footer-link {
-  @apply text-paper/55 transition hover:text-paper;
+  color: #555;
+  transition: color 0.15s ease;
+}
+.footer-link:hover {
+  color: #c0c6cc;
 }
 </style>

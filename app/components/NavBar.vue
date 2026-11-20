@@ -1,16 +1,8 @@
 <!-- app/components/NavBar.vue -->
 <script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
-import { computed, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 
 const route = useRoute()
-const cart = useCartStore()
-
-const { y } = useWindowScroll()
-const isHome = computed(() => route.path === '/')
-const scrolled = computed(() => y.value > 24)
-/** Transparent only at the top of the homepage; solid everywhere else. */
-const solid = computed(() => !isHome.value || scrolled.value)
 
 const mobileOpen = ref(false)
 watch(
@@ -21,97 +13,91 @@ watch(
 )
 
 const links = [
-  { label: 'Gallery', to: '/gallery' },
-  { label: 'About', to: '/about' },
+  { label: 'Home', to: '/' },
+  { label: 'Collection', to: '/gallery' },
+  { label: 'Meet the Photographer', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 </script>
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-40 transition-colors duration-500 ease-out-expo"
-    :class="
-      solid
-        ? 'border-b border-paper/10 bg-ink/85 backdrop-blur-md'
-        : 'border-b border-transparent bg-transparent'
-    "
+    class="fixed inset-x-0 top-0 z-40 flex h-[65px] items-center bg-ink px-[5%] lg:px-[3%]"
   >
-    <div class="container-wide flex h-16 items-center justify-between md:h-20">
+    <!-- Left: page links (desktop) / hamburger (mobile) -->
+    <nav class="hidden flex-1 whitespace-nowrap lg:block">
       <NuxtLink
-        to="/"
-        class="font-serif text-lg tracking-tight text-paper transition hover:text-white md:text-xl"
+        v-for="link in links"
+        :key="link.to"
+        :to="link.to"
+        class="nav-link mr-5 last:mr-0"
+        exact-active-class="font-bold"
       >
-        Lombardi<span class="text-clay">.</span>
-        <span class="hidden text-sm tracking-widest text-paper/50 md:inline">
-          &nbsp;PHOTOGRAPHY</span
-        >
+        {{ link.label }}
       </NuxtLink>
-
-      <nav class="hidden items-center gap-9 md:flex">
-        <NuxtLink
-          v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="text-sm text-paper/70 transition hover:text-paper"
-          active-class="!text-paper"
-        >
-          {{ link.label }}
-        </NuxtLink>
-        <NavCartButton />
-      </nav>
-
-      <div class="flex items-center gap-2 md:hidden">
-        <NavCartButton />
-        <button
-          type="button"
-          class="grid h-10 w-10 place-items-center rounded-full text-paper transition hover:bg-paper/10"
-          :aria-expanded="mobileOpen"
-          aria-label="Toggle menu"
-          @click="mobileOpen = !mobileOpen"
-        >
-          <svg
-            v-if="!mobileOpen"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
-          </svg>
-          <svg
-            v-else
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
-          </svg>
-        </button>
-      </div>
+    </nav>
+    <div class="flex-1 lg:hidden">
+      <button
+        type="button"
+        class="grid h-10 w-10 place-items-center text-paper"
+        :aria-expanded="mobileOpen"
+        aria-label="Open menu"
+        @click="mobileOpen = true"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
 
+    <!-- Centre: wordmark -->
+    <NuxtLink to="/" class="flex shrink-0 items-baseline justify-center gap-2 px-4 text-paper">
+      <span class="font-display text-[21px] font-light leading-none sm:text-[22px]">Lombardi</span>
+      <span class="font-script text-[28px] leading-none sm:text-[30px]">Photography</span>
+    </NuxtLink>
+
+    <!-- Right: cart -->
+    <div class="flex flex-1 justify-end">
+      <NavCartButton />
+    </div>
+
+    <!-- Full-screen mobile menu -->
     <Transition name="lightbox-fade">
       <div
         v-if="mobileOpen"
-        class="border-t border-paper/10 bg-ink/95 backdrop-blur-md md:hidden"
+        class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink lg:hidden"
       >
-        <nav class="container-wide flex flex-col py-4">
+        <button
+          type="button"
+          class="absolute right-[5%] top-3 grid h-10 w-10 place-items-center text-paper"
+          aria-label="Close menu"
+          @click="mobileOpen = false"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M5 5l14 14M19 5L5 19" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="flex flex-col items-center gap-[30px]">
           <NuxtLink
             v-for="link in links"
             :key="link.to"
             :to="link.to"
-            class="border-b border-paper/5 py-3 text-base text-paper/80"
-            active-class="!text-paper"
+            class="text-[22px] leading-8 text-paper"
+            exact-active-class="font-bold"
           >
             {{ link.label }}
+          </NuxtLink>
+          <NuxtLink to="/cart" class="text-[22px] leading-8 text-paper" exact-active-class="font-bold">
+            Cart
           </NuxtLink>
         </nav>
       </div>
     </Transition>
   </header>
 </template>
+
+<style scoped>
+.nav-link {
+  @apply text-[18px] leading-6 text-paper;
+}
+</style>

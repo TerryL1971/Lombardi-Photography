@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import type { Photo } from '~/types/gallery'
 
-const props = defineProps<{
+defineProps<{
   photo: Photo
   /** Eager-load the first row for a good LCP. */
   priority?: boolean
@@ -10,38 +10,37 @@ const props = defineProps<{
 }>()
 
 defineEmits<{ (e: 'open'): void }>()
-
-const { priceRange } = useGallery()
-const range = computed(() => priceRange(props.photo))
 </script>
 
 <template>
   <button
     type="button"
-    class="group relative block w-full overflow-hidden rounded-sm bg-ink-soft text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+    class="group relative block aspect-[4/3] w-full overflow-hidden bg-black/[0.03] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-clay"
     @click="$emit('open')"
   >
     <NuxtImg
       :src="photo.image"
       :alt="photo.alt"
-      :sizes="sizes ?? 'xs:100vw sm:50vw lg:33vw'"
+      :sizes="sizes ?? 'xs:100vw sm:50vw'"
       :loading="priority ? 'eager' : 'lazy'"
       :preload="priority"
-      :width="photo.orientation === 'portrait' ? 1000 : 1500"
-      :height="photo.orientation === 'portrait' ? 1250 : 1000"
-      class="w-full origin-center object-cover transition-transform duration-[900ms] ease-out-expo group-hover:scale-[1.04]"
-      :class="photo.orientation === 'portrait' ? 'aspect-[4/5]' : 'aspect-[3/2]'"
+      width="1500"
+      height="1125"
+      class="absolute inset-0 h-full w-full object-cover"
     />
 
-    <!-- Hover / focus caption -->
+    <!-- Hover / focus: white 90% wash with a centred dark caption -->
     <div
-      class="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/80 via-ink/10 to-transparent p-5 opacity-0 transition-opacity duration-500 ease-out-expo group-hover:opacity-100 group-focus-visible:opacity-100"
+      class="pointer-events-none absolute inset-0 flex items-center justify-center bg-white/90 px-[8%] py-[8%] text-center text-ink opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100 group-focus-visible:opacity-100"
     >
-      <p class="eyebrow text-clay/90">{{ photo.category }}</p>
-      <p class="mt-1 font-serif text-lg text-paper">{{ photo.title }}</p>
-      <p class="mt-0.5 text-xs text-paper/60">
-        Prints from {{ formatPrice(range.min) }}
-      </p>
+      <div>
+        <p class="pb-1 text-[15px] font-bold leading-[15px] sm:text-[18px] sm:leading-[18px] lg:text-[24px] lg:leading-6">
+          {{ photo.title }}
+        </p>
+        <p class="pt-2.5 text-sm leading-5 lg:pt-3 lg:text-[17px]">
+          {{ photo.location }} {{ photo.year }}
+        </p>
+      </div>
     </div>
   </button>
 </template>

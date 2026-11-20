@@ -38,7 +38,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <div v-if="photo" class="container-wide pb-24 pt-24 sm:pt-32">
+  <div v-if="photo" class="container-wide pb-24 pt-10 sm:pt-14">
     <NuxtLink
       to="/gallery"
       class="mb-8 inline-flex items-center gap-2 text-sm text-paper/50 transition hover:text-paper"
@@ -54,7 +54,7 @@ useHead(() => ({
       <div>
         <button
           type="button"
-          class="group relative block w-full overflow-hidden rounded-sm bg-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay"
+          class="group relative block w-full overflow-hidden bg-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay"
           aria-label="Open full-screen"
           @click="openHere"
         >
@@ -80,7 +80,7 @@ useHead(() => ({
       </div>
 
       <!-- Order column -->
-      <div class="lg:sticky lg:top-28 lg:self-start">
+      <div class="lg:sticky lg:top-[97px] lg:self-start">
         <p class="eyebrow">{{ photo.category }} &middot; {{ photo.year }}</p>
         <h1 class="mt-2 font-serif text-3xl text-paper sm:text-4xl">
           {{ photo.title }}
@@ -88,7 +88,7 @@ useHead(() => ({
         <p class="mt-2 text-sm text-paper/50">{{ photo.location }}</p>
         <p class="mt-5 text-paper/65">{{ photo.description }}</p>
 
-        <div class="mt-8 rounded-lg border border-paper/10 bg-ink-soft p-6">
+        <div class="mt-8 rounded-none border border-paper/10 bg-ink-soft p-6">
           <p class="mb-5 text-xs uppercase tracking-widest text-paper/45">
             Order an archival print
           </p>
@@ -137,7 +137,7 @@ useHead(() => ({
           v-for="rp in relatedPhotos"
           :key="rp.id"
           :to="`/gallery/${rp.slug}`"
-          class="group block overflow-hidden rounded-sm bg-ink-soft"
+          class="group block overflow-hidden bg-ink-soft"
         >
           <NuxtImg
             :src="rp.image"

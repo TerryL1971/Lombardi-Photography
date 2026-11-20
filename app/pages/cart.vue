@@ -16,7 +16,7 @@ useHead({ title: 'Cart — Lombardi Photography' })
 </script>
 
 <template>
-  <div class="container-wide pb-24 pt-28 sm:pt-36">
+  <div class="container-wide pb-24 pt-12 sm:pt-16">
     <h1 class="mb-10 font-serif text-4xl text-paper sm:text-5xl">Your cart</h1>
 
     <ClientOnly>
@@ -33,8 +33,8 @@ useHead({ title: 'Cart — Lombardi Photography' })
           <CartItem v-for="line in cart.lines" :key="line.key" :line="line" />
         </div>
 
-        <aside class="lg:sticky lg:top-28 lg:self-start">
-          <div class="rounded-lg border border-paper/10 bg-ink-soft p-6">
+        <aside class="lg:sticky lg:top-[97px] lg:self-start">
+          <div class="rounded-none border border-paper/10 bg-ink-soft p-6">
             <h2 class="font-serif text-xl text-paper">Summary</h2>
             <dl class="mt-5 space-y-3 text-sm">
               <div class="flex justify-between text-paper/65">

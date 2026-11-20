@@ -25,7 +25,7 @@ export default defineNuxtConfig({
           content:
             'Lombardi Photography — travel and place photography from the old towns, side streets and gardens of Europe. Browse the gallery and order archival prints.',
         },
-        { name: 'theme-color', content: '#141210' },
+        { name: 'theme-color', content: '#222222' },
         { property: 'og:title', content: 'Lombardi Photography' },
         {
           property: 'og:description',
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400&family=Mulish:wght@400;600;700&display=swap',
         },
       ],
     },

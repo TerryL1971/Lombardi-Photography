@@ -25,7 +25,7 @@
   h2,
   h3,
   h4 {
-    @apply font-serif font-normal tracking-tight;
+    @apply font-serif font-bold;
     text-wrap: balance;
   }
 }
@@ -40,7 +40,18 @@
   }
 
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-widest text-clay;
+    @apply text-sm text-clay-deep;
+  }
+
+  /* Centred page heading block (title + grey description) */
+  .page-header {
+    @apply mx-auto max-w-[700px] px-[5%] pb-12 pt-8 text-center;
+  }
+  .page-header h1 {
+    @apply text-[19px] leading-[34px] text-paper-soft sm:text-[28px] sm:leading-[50px];
+  }
+  .page-header p {
+    @apply mt-3 text-sm leading-5 text-clay-deep sm:text-base sm:leading-[22px];
   }
 
   .btn {
@@ -51,22 +62,23 @@
            disabled:cursor-not-allowed disabled:opacity-40;
   }
 
+  /* White translucent pill, as on the reference splash button */
   .btn-primary {
-    @apply btn bg-paper text-ink hover:bg-white;
+    @apply btn border border-white bg-white/80 font-bold text-[#111] hover:bg-white;
   }
 
   .btn-outline {
-    @apply btn border border-paper/25 text-paper hover:border-paper/60 hover:bg-paper/5;
+    @apply btn border border-white text-paper hover:bg-white/10;
   }
 
   .field {
-    @apply w-full rounded-lg border border-paper/15 bg-ink-soft px-4 py-3 text-sm
+    @apply w-full rounded-none border border-paper/20 bg-ink-soft px-4 py-3 text-sm
            text-paper placeholder:text-paper/35 transition
            focus:border-clay focus:outline-none focus:ring-1 focus:ring-clay;
   }
 
   .field-label {
-    @apply mb-1.5 block text-xs font-medium uppercase tracking-widest text-paper/45;
+    @apply mb-1.5 block text-sm text-clay-deep;
   }
 }
 

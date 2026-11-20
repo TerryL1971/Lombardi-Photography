@@ -17,7 +17,7 @@ const lineTotal = computed(() => props.line.unitPrice * props.line.quantity)
         width="200"
         height="200"
         sizes="96px sm:128px"
-        class="h-24 w-24 rounded-sm object-cover sm:h-32 sm:w-32"
+        class="h-24 w-24 object-cover sm:h-32 sm:w-32"
       />
     </NuxtLink>
 
@@ -43,7 +43,7 @@ const lineTotal = computed(() => props.line.unitPrice * props.line.quantity)
       </div>
 
       <div class="mt-auto flex items-center justify-between pt-4">
-        <div class="inline-flex items-center rounded-lg border border-paper/15">
+        <div class="inline-flex items-center rounded-none border border-paper/15">
           <button
             type="button"
             class="grid h-9 w-9 place-items-center text-paper/70 transition hover:text-paper"

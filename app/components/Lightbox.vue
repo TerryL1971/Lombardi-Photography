@@ -103,7 +103,7 @@ onKeyStroke('ArrowLeft', () => {
                       :width="current.orientation === 'portrait' ? 1400 : 1800"
                       :height="current.orientation === 'portrait' ? 1750 : 1200"
                       loading="eager"
-                      class="max-h-full max-w-full rounded-sm object-contain shadow-2xl shadow-black/50"
+                      class="max-h-full max-w-full object-contain shadow-2xl shadow-black/50"
                     />
                   </Transition>
                 </div>

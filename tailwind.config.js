@@ -13,23 +13,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Charcoal / white / silver palette, after pictureitbyterry.com
         ink: {
-          DEFAULT: '#141210',
-          soft: '#1d1a17',
-          muted: '#2a2622',
+          DEFAULT: '#222222',
+          soft: '#2a2a2a',
+          muted: '#333333',
         },
         paper: {
-          DEFAULT: '#f6f3ee',
-          soft: '#efe9e0',
+          DEFAULT: '#ffffff',
+          soft: '#eeeeee',
         },
         clay: {
-          DEFAULT: '#b08968',
-          deep: '#8a6a4f',
+          DEFAULT: '#c0c6cc',
+          deep: '#888888',
         },
+        dim: '#555555',
       },
       fontFamily: {
-        serif: ['Fraunces', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Mulish stands in for FreightNeo Pro, Josefin Sans Light for Blakely,
+        // Allura for P22 Allyson (the originals are Adobe Fonts only).
+        serif: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Josefin Sans"', 'ui-sans-serif', 'sans-serif'],
+        script: ['Allura', 'cursive'],
       },
       letterSpacing: {
         widest: '0.28em',
