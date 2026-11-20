@@ -31,9 +31,9 @@ export default {
       },
       fontFamily: {
         // Mulish stands in for FreightNeo Pro, Josefin Sans Light for Blakely,
-        // Allura for P22 Allyson (the originals are Adobe Fonts only).
-        serif: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Allura for P22 Allyson (the originals are Adobe Fonts only). Self-hosted via @fontsource.
+        serif: ['"Mulish Variable"', 'Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Mulish Variable"', 'Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['"Josefin Sans"', 'ui-sans-serif', 'sans-serif'],
         script: ['Allura', 'cursive'],
       },

@@ -11,7 +11,15 @@ export default defineNuxtConfig({
     '@nuxt/image',
   ],
 
-  css: ['~/assets/css/main.css'],
+  // Fonts are self-hosted (bundled from @fontsource) — no requests to Google,
+  // so visitors' IP addresses aren't sent to a third party (GDPR / DSGVO).
+  css: [
+    '@fontsource-variable/mulish',
+    '@fontsource/josefin-sans/300.css',
+    '@fontsource/josefin-sans/700.css',
+    '@fontsource/allura',
+    '~/assets/css/main.css',
+  ],
 
   app: {
     head: {
@@ -36,16 +44,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: '',
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Allura&family=Josefin+Sans:wght@300;400&family=Mulish:wght@400;600;700&display=swap',
-        },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },

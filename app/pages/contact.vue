@@ -8,7 +8,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Get in touch about prints, custom sizes, commissions or licensing.',
+        'Questions, feedback or just a hello — get in touch with Terry.',
     },
   ],
 })
@@ -16,15 +16,13 @@ useHead({
 const form = reactive({
   name: '',
   email: '',
-  topic: 'A print enquiry',
+  topic: 'A question about a photo',
   message: '',
 })
 
 const topics = [
-  'A print enquiry',
-  'A custom size or finish',
-  'A commission',
-  'Licensing an image',
+  'A question about a photo',
+  'Feedback on the site',
   'Something else',
 ]
 
@@ -48,8 +46,8 @@ function submit() {
     <header class="page-header !px-0 !pb-6">
       <h1>Say hello</h1>
       <p v-if="!sent">
-        Questions about a print, a wall you're trying to fill, a commission or
-        licensing — this reaches me directly.
+        A question about one of my photos, some feedback, or just a hello —
+        this reaches me directly.
       </p>
     </header>
 
