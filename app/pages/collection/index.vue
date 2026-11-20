@@ -42,8 +42,7 @@ function scrollToWork() {
           />
         </div>
         <p v-else class="px-[5%] py-24 text-center text-clay-deep">
-          No collections published yet — publish from Lightroom, then run
-          <code class="text-paper">npm run sync</code>.
+          New photographs are on their way, please check back soon.
         </p>
       </div>
     </section>
