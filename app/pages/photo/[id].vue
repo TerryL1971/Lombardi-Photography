@@ -11,6 +11,7 @@ if (error.value || !data.value) {
 
 const photo = computed(() => data.value!.photo)
 const order = usePrintOrder(photo)
+const shopOn = useAppConfig().shop.enabled
 
 useHead(() => ({
   title: `${photo.value.collectionTitle} — ${photo.value.title} — Picture It by Terry`,
@@ -50,7 +51,7 @@ useHead(() => ({
         <h1 class="mt-2 text-3xl text-paper sm:text-4xl">{{ photo.title }}</h1>
         <p v-if="photo.caption" class="mt-5 text-paper/65">{{ photo.caption }}</p>
 
-        <div class="mt-8 border border-paper/10 bg-ink-soft p-6">
+        <div v-if="shopOn" class="mt-8 border border-paper/10 bg-ink-soft p-6">
           <p class="mb-5 text-sm text-clay-deep">Order a print</p>
           <PrintOrderControls :order="order" />
 

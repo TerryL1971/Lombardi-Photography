@@ -1,5 +1,6 @@
 <!-- app/pages/cart.vue -->
 <script setup lang="ts">
+definePageMeta({ middleware: 'shop' })
 import { computed } from 'vue'
 
 const cart = useCartStore()

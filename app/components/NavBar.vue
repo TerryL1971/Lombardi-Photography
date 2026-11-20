@@ -3,6 +3,7 @@
 import { ref, watch } from 'vue'
 
 const route = useRoute()
+const shopOn = useAppConfig().shop.enabled
 
 const mobileOpen = ref(false)
 watch(
@@ -64,7 +65,7 @@ const links = [
 
     <!-- Right: cart -->
     <div class="flex flex-1 justify-end">
-      <NavCartButton />
+      <NavCartButton v-if="shopOn" />
     </div>
 
     <!-- Full-screen mobile menu -->
@@ -93,7 +94,7 @@ const links = [
           >
             {{ link.label }}
           </NuxtLink>
-          <NuxtLink to="/cart" class="text-[22px] leading-8 text-paper" exact-active-class="font-bold">
+          <NuxtLink v-if="shopOn" to="/cart" class="text-[22px] leading-8 text-paper" exact-active-class="font-bold">
             Cart
           </NuxtLink>
         </nav>

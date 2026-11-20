@@ -5,8 +5,13 @@ Photography portfolio and print shop for Terry C Lombardi, live at
 Classic collections; the design mirrors the Adobe Portfolio site at
 pictureitbyterry.com.
 
-> Print checkout is still a non-functional demo: no payment is taken and no
-> print is ordered.
+> **Print shop is switched off** (`shop.enabled: false` in `app/app.config.ts`):
+> no cart, no ordering, and `/cart` and `/checkout` redirect to the collection. The code
+> is kept. Set it to `true` and push to bring it back (checkout is still a demo:
+> no payment is taken).
+>
+> pictureitbyterry.com and www.pictureitbyterry.com stay on Adobe Portfolio.
+> This site lives only at shop.pictureitbyterry.com.
 
 ## Updating photos (the everyday workflow)
 

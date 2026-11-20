@@ -7,6 +7,7 @@ const { isOpen, items, index, current, hasMultiple, close, next, prev } =
   useLightbox()
 
 const showOrder = ref(false)
+const shopOn = useAppConfig().shop.enabled
 const closeBtn = ref<HTMLButtonElement | null>(null)
 let lastFocused: HTMLElement | null = null
 
@@ -141,7 +142,7 @@ onKeyStroke('ArrowLeft', () => {
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
                       </button>
                     </div>
-                    <button type="button" class="btn-primary" @click="showOrder = true">
+                    <button v-if="shopOn" type="button" class="btn-primary" @click="showOrder = true">
                       Order this print
                     </button>
                   </div>
@@ -152,7 +153,7 @@ onKeyStroke('ArrowLeft', () => {
 
           <!-- Slide-in order panel -->
           <PrintOrderPanel
-            v-if="current"
+            v-if="current && shopOn"
             :photo="current"
             :open="showOrder"
             @close="showOrder = false"

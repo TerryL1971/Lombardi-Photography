@@ -3,6 +3,7 @@
 useHead({ title: 'Picture It by Terry' })
 
 const cart = useCartStore()
+const shopOn = useAppConfig().shop.enabled
 const { data: site } = await useFetch('/api/site')
 
 /** Chosen on /arrange; falls back to a bundled photo before the first sync. */
@@ -75,7 +76,7 @@ const socials = [
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path :d="s.path" /></svg>
           </a>
         </li>
-        <li>
+        <li v-if="shopOn">
           <NuxtLink
             to="/cart"
             class="splash-icon"

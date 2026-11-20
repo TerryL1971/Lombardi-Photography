@@ -4,6 +4,7 @@ import { useWindowScroll } from '@vueuse/core'
 import { computed } from 'vue'
 
 const year = new Date().getFullYear()
+const shopOn = useAppConfig().shop.enabled
 const { y } = useWindowScroll()
 const showFixed = computed(() => y.value > 600)
 
@@ -22,7 +23,7 @@ function toTop() {
       <NuxtLink class="footer-link" to="/collection">Collection</NuxtLink>
       <NuxtLink class="footer-link" to="/about">Meet the Photographer</NuxtLink>
       <NuxtLink class="footer-link" to="/contact">Contact</NuxtLink>
-      <NuxtLink class="footer-link" to="/cart">Cart</NuxtLink>
+      <NuxtLink v-if="shopOn" class="footer-link" to="/cart">Cart</NuxtLink>
     </nav>
 
     <p class="mt-6 text-xs">
