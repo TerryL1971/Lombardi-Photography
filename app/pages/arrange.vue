@@ -44,6 +44,7 @@ function setCover(id: string) {
 }
 function setHome(id: string) {
   if (!data.value) return
+  if (data.value.homeBackground !== id) delete data.value.homeCrop // crop was for the old photo
   data.value.homeBackground = id
   touch()
 }

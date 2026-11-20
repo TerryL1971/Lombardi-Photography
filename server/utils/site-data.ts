@@ -91,7 +91,18 @@ export function findPhoto(data: SiteData, id: string) {
 export function homeBackground(data: SiteData) {
   for (const c of data.collections) {
     const p = c.photos.find((x) => x.id === data.homeBackground && x.large)
-    if (p) return { url: p.large, width: p.width, height: p.height }
+    if (!p) continue
+    // Optional: keep only the top fraction of the photo (e.g. to hide a watermark),
+    // done by Cloudinary before resizing.
+    const crop = data.homeCrop
+    if (crop && crop > 0 && crop < 1 && p.large.includes('/image/upload/')) {
+      return {
+        url: p.large.replace('/image/upload/', `/image/upload/c_crop,g_north,h_${crop}/`),
+        width: p.width,
+        height: Math.round(p.height * crop),
+      }
+    }
+    return { url: p.large, width: p.width, height: p.height }
   }
   return null
 }

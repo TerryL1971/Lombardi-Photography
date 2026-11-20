@@ -7,7 +7,7 @@ const shopOn = useAppConfig().shop.enabled
 const { data: site } = await useFetch('/api/site')
 
 /** Chosen on /arrange; falls back to a bundled photo before the first sync. */
-const background = computed(() => site.value?.background?.url ?? '/images/hero.jpg')
+const background = computed(() => site.value?.background?.url ?? '/images/home.jpg')
 
 const socials = [
   {

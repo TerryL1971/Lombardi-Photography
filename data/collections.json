@@ -1,5 +1,6 @@
 {
   "homeBackground": "eastbourne-uk-dsc-0224",
+  "homeCrop": 0.813,
   "ignore": [
     "Lightroom Team Photos",
     "My Europe"

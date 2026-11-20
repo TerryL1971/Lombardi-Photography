@@ -83,6 +83,8 @@ export interface StoredCollection {
 
 export interface SiteData {
   homeBackground: string | null
+  /** Keep only the top fraction (0–1) of the home background, e.g. to hide a watermark. */
+  homeCrop?: number
   /** Publish folders the sync script should skip. */
   ignore: string[]
   collections: StoredCollection[]
